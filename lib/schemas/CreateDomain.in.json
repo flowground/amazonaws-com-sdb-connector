@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "AWSAccessKeyId": {
+            "required": true,
+            "type": "string"
+        },
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureMethod": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureVersion": {
+            "required": true,
+            "type": "string"
+        },
+        "Timestamp": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "Signature": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DomainName": {
+                    "description": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DomainName"
+            ],
+            "type": "object"
+        }
+    }
+}

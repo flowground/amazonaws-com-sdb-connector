@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "AWSAccessKeyId": {
+            "required": true,
+            "type": "string"
+        },
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureMethod": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureVersion": {
+            "required": true,
+            "type": "string"
+        },
+        "Timestamp": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "Signature": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Attributes": {
+                    "description": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
+                    "items": {
+                        "description": "",
+                        "properties": {
+                            "Name": {
+                                "description": "The name of the attribute.",
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of the attribute.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "xml": {
+                        "wrapped": false
+                    }
+                },
+                "DomainName": {
+                    "description": "The name of the domain in which to perform the operation.",
+                    "type": "string"
+                },
+                "Expected": {
+                    "description": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.",
+                    "properties": {
+                        "Exists": {
+                            "description": "A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify <code>true</code> if the attribute must exist for the update condition to be satisfied. Specify <code>false</code> if the attribute should not exist in order for the update condition to be satisfied.",
+                            "type": "boolean"
+                        },
+                        "Name": {
+                            "description": "The name of the attribute involved in the condition.",
+                            "type": "string"
+                        },
+                        "Value": {
+                            "description": "The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ItemName": {
+                    "description": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DomainName",
+                "ItemName"
+            ],
+            "type": "object"
+        }
+    }
+}

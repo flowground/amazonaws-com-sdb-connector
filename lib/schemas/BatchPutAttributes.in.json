@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "AWSAccessKeyId": {
+            "required": true,
+            "type": "string"
+        },
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureMethod": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureVersion": {
+            "required": true,
+            "type": "string"
+        },
+        "Timestamp": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "Signature": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DomainName": {
+                    "description": "The name of the domain in which the attributes are being stored.",
+                    "type": "string"
+                },
+                "Items": {
+                    "description": "A list of items on which to perform the operation.",
+                    "items": {
+                        "description": "",
+                        "properties": {
+                            "Attributes": {
+                                "description": "The list of attributes for a replaceable item.",
+                                "items": {
+                                    "description": "",
+                                    "properties": {
+                                        "Name": {
+                                            "description": "The name of the replaceable attribute.",
+                                            "type": "string"
+                                        },
+                                        "Replace": {
+                                            "description": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is <code>false</code>.",
+                                            "type": "boolean"
+                                        },
+                                        "Value": {
+                                            "description": "The value of the replaceable attribute.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Name",
+                                        "Value"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "xml": {
+                                    "wrapped": false
+                                }
+                            },
+                            "Name": {
+                                "description": "The name of the replaceable item.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name",
+                            "Attributes"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "xml": {
+                        "wrapped": false
+                    }
+                }
+            },
+            "required": [
+                "DomainName",
+                "Items"
+            ],
+            "type": "object"
+        }
+    }
+}

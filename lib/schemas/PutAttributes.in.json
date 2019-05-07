@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "AWSAccessKeyId": {
+            "required": true,
+            "type": "string"
+        },
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureMethod": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureVersion": {
+            "required": true,
+            "type": "string"
+        },
+        "Timestamp": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "Signature": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Attributes": {
+                    "description": "The list of attributes.",
+                    "items": {
+                        "description": "",
+                        "properties": {
+                            "Name": {
+                                "description": "The name of the replaceable attribute.",
+                                "type": "string"
+                            },
+                            "Replace": {
+                                "description": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is <code>false</code>.",
+                                "type": "boolean"
+                            },
+                            "Value": {
+                                "description": "The value of the replaceable attribute.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "xml": {
+                        "wrapped": false
+                    }
+                },
+                "DomainName": {
+                    "description": "The name of the domain in which to perform the operation.",
+                    "type": "string"
+                },
+                "Expected": {
+                    "description": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.",
+                    "properties": {
+                        "Exists": {
+                            "description": "A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify <code>true</code> if the attribute must exist for the update condition to be satisfied. Specify <code>false</code> if the attribute should not exist in order for the update condition to be satisfied.",
+                            "type": "boolean"
+                        },
+                        "Name": {
+                            "description": "The name of the attribute involved in the condition.",
+                            "type": "string"
+                        },
+                        "Value": {
+                            "description": "The value of an attribute. This value can only be specified when the <code>Exists</code> parameter is equal to <code>true</code>.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ItemName": {
+                    "description": "The name of the item.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DomainName",
+                "ItemName",
+                "Attributes"
+            ],
+            "type": "object"
+        }
+    }
+}

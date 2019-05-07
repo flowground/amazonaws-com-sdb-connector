@@ -1,0 +1,87 @@
+{
+    "type": "object",
+    "properties": {
+        "AWSAccessKeyId": {
+            "required": true,
+            "type": "string"
+        },
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureMethod": {
+            "required": true,
+            "type": "string"
+        },
+        "SignatureVersion": {
+            "required": true,
+            "type": "string"
+        },
+        "Timestamp": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "Signature": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DomainName": {
+                    "description": "The name of the domain in which the attributes are being deleted.",
+                    "type": "string"
+                },
+                "Items": {
+                    "description": "A list of items on which to perform the operation.",
+                    "items": {
+                        "properties": {
+                            "Attributes": {
+                                "items": {
+                                    "description": "",
+                                    "properties": {
+                                        "Name": {
+                                            "description": "The name of the attribute.",
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "description": "The value of the attribute.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Name"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array",
+                                "xml": {
+                                    "wrapped": false
+                                }
+                            },
+                            "Name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "xml": {
+                        "wrapped": false
+                    }
+                }
+            },
+            "required": [
+                "DomainName",
+                "Items"
+            ],
+            "type": "object"
+        }
+    }
+}
